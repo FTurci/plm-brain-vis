@@ -1,7 +1,7 @@
 import networkx as nx
 from bokeh.plotting import figure, from_networkx
 from bokeh.transform import linear_cmap
-from bokeh.models import Circle, MultiLine, EdgesAndLinkedNodes, HoverTool
+from bokeh.models import Circle, MultiLine, EdgesAndLinkedNodes, HoverTool,BoxZoomTool,ResetTool
 import numpy as np
 
 def create_graph(matrix, scale=1.8,circlesize=10, xrange=(-2,2), yrange=(-2,2),mscale =1.0):
@@ -23,7 +23,7 @@ def create_graph(matrix, scale=1.8,circlesize=10, xrange=(-2,2), yrange=(-2,2),m
 
     graph.node_renderer.glyph = Circle(
         size=circlesize,
-        fill_color=linear_cmap('index', 'Spectral8', min(G.nodes()), max(G.nodes()))
+        fill_color=linear_cmap('index', ('#ff9300', '#8df900'), min(G.nodes()), max(G.nodes()))
     )
     graph.edge_renderer.glyph = MultiLine(
         line_color=linear_cmap('sign', 'RdBu8', matrix.min(),matrix.max()),
@@ -31,6 +31,15 @@ def create_graph(matrix, scale=1.8,circlesize=10, xrange=(-2,2), yrange=(-2,2),m
         line_width="scaled_abs_weight"
         )
     graph.inspection_policy=EdgesAndLinkedNodes()
+    p.add_tools(HoverTool(
+        tooltips=[
+            ( 'weight', '@weight'      ),
+        ],
+        # display a tooltip whenever the cursor is vertically in line with a glyph
+        # mode='vline'
+    )
+    )
+    p.add_tools(BoxZoomTool(),ResetTool())
     p.xgrid.visible = False
     p.ygrid.visible = False
     return graph,p

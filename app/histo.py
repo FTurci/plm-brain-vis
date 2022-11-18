@@ -2,9 +2,10 @@ import numpy as np
 from bokeh.layouts import column,row
 from bokeh.layouts import gridplot
 from bokeh.plotting import figure, show
+from bokeh.models import Band
 
 
-def create_histo(data, bins,fill_color='navy', line_color='grey',alpha=0.5, log=False, loglog=False):
+def create_histo(data, bins,fill_color='navy', line_color='grey',alpha=0.5, log=False, loglog=False ,threshold=0):
     """Create histogram from data."""
 
 
@@ -15,11 +16,12 @@ def create_histo(data, bins,fill_color='navy', line_color='grey',alpha=0.5, log=
         logy= np.log10(hist)
 
         # plot positive branch
-        p1 = figure( tools='', background_fill_color="#fafafa",x_axis_type="log",y_axis_type="log")
+        p1 = figure( tools='', background_fill_color="#fafafa",x_axis_type="log",y_axis_type="log", name='positive')
         valid =x>0
         logx = np.log10(x[valid])
         p1.line(x[valid], y[valid[:-1]],line_color='red')
         p1.circle(x[valid], y[valid[:-1]],fill_color='red',line_color='red')
+        p1.line(x='x',y='y',source=threshold, line_color="black", name='tline')
         p1.title='positive couplings'
 
         p2 = figure( tools='', background_fill_color="#fafafa",x_axis_type="log",y_axis_type="log")
@@ -27,9 +29,12 @@ def create_histo(data, bins,fill_color='navy', line_color='grey',alpha=0.5, log=
         mx = -x
         p2.line(mx[valid], y[valid[:-1]], line_color='navy')
         p2.circle(mx[valid], y[valid[:-1]], fill_color='navy',line_color='navy')
+        p2.line(x='x',y='y',source=threshold, line_color="black", name='tline')
         p2.title='negative couplings'
         # p2.quad(top=y[valid[:-1]], bottom=0, left=logx[:-1], right=logx[1:],
                # fill_color='red', line_color=line_color, alpha=alpha)
+        # add lines based on threshold
+
 
         for p in p1,p2:
             # p.y_range.start = 0
