@@ -42,4 +42,5 @@ def create_graph(matrix, scale=1.8,circlesize=10, xrange=(-2,2), yrange=(-2,2),m
     p.add_tools(BoxZoomTool(),ResetTool())
     p.xgrid.visible = False
     p.ygrid.visible = False
+    p.name = "main"
     return graph,p

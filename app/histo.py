@@ -17,18 +17,19 @@ def create_histo(data, bins,fill_color='navy', line_color='grey',alpha=0.5, log=
 
         # plot positive branch
         p1 = figure( tools='', background_fill_color="#fafafa",x_axis_type="log",y_axis_type="log", name='positive')
-        valid =x>0
-        logx = np.log10(x[valid])
-        p1.line(x[valid], y[valid[:-1]],line_color='red')
-        p1.circle(x[valid], y[valid[:-1]],fill_color='red',line_color='red')
+        # centers
+        xc = x[:-1]+(x[1]-x[0])/2
+        valid =xc>0
+        p1.line(xc[valid], y[valid],line_color='red')
+        p1.circle(xc[valid], y[valid],fill_color='red',line_color='red')
         p1.line(x='x',y='y',source=threshold, line_color="black", name='tline')
         p1.title='positive couplings'
 
         p2 = figure( tools='', background_fill_color="#fafafa",x_axis_type="log",y_axis_type="log")
-        valid =x<0
-        mx = -x
-        p2.line(mx[valid], y[valid[:-1]], line_color='navy')
-        p2.circle(mx[valid], y[valid[:-1]], fill_color='navy',line_color='navy')
+        valid =xc<0
+        mx = -xc
+        p2.line(mx[valid], y[valid], line_color='navy')
+        p2.circle(mx[valid], y[valid], fill_color='navy',line_color='navy')
         p2.line(x='x',y='y',source=threshold, line_color="black", name='tline')
         p2.title='negative couplings'
         # p2.quad(top=y[valid[:-1]], bottom=0, left=logx[:-1], right=logx[1:],

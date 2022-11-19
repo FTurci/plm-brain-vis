@@ -25,13 +25,15 @@ matrix = np.copy(original_matrix)
 # storing diagonal values, if ever needed
 diagonal = matrix.diagonal()
 np.fill_diagonal(matrix, 0)
+# === title
+title = Div( text ="<h1> PLM Brain Vis </h1>")
 # === create first graph
 graph, ntw = grapher.create_graph(matrix, mscale=original_matrix.std()*3)
 ntw.renderers.append(graph)
 # === add slider
 slider = Slider(start=-10, end=0, value=-10, step=1, title="ln threshold")
 # === add Div for information
-threshold_description = Div( text =" threshold: "+str(0))
+threshold_description = Div( text =" threshold: "+str(0), name="thr out")
 
 # === add histogram
 histplot = histo.create_histo(
@@ -51,17 +53,13 @@ def update(attr, old, new):
 
 
     # update the objects on the page
-    layout.children[0] = newntw #children are added in the order below
-    layout.children[1].children[1].text = f"threshold: {threshold}"
+    layout.children[1].children[0] = newntw
+    threshold_description.text = f"threshold: {threshold}"
     threshold_line_source.data = {'x':[threshold,threshold],'y':[0.001,10]}
-    poshist = layout.children[1].children[2].children[0]
-    line = poshist.select(name="tline")
 
 
-    # print(line)
-    # print(line.coordinates )
-    # line = layout.children[1].children[2].children[0].select_one({name:'tline'}) #= [threshold,threshold]
-    # print(line.x)
+
+
 slider.on_change('value', update)
 
 # Add some new columns to the node renderer data source
@@ -69,5 +67,6 @@ slider.on_change('value', update)
 # graph.node_renderer.data_source.data['colors'] = Category20_20
 
 # graph.node_renderer.glyph.update(size=20, fill_color="colors")
-layout = row( ntw,column(slider,threshold_description,histplot))
+layout =column(title, row( ntw,column(slider,threshold_description,histplot)))
 curdoc().add_root(layout)
+curdoc().title = "PLM Brain Vis"
