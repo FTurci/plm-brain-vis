@@ -22,7 +22,7 @@ def create_degree_hist(datasource, fill_color='#008f51', line_color='#008f51',al
     p.plot_height=200
     p.plot_width=400
     p.toolbar.logo = None
-    p.title='degree counts'
+    p.title='degree count'
     p.xaxis.axis_label = "degree"
     p.yaxis.axis_label = "count"
     return p
