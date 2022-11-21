@@ -1,0 +1,181 @@
+roi_index,roi_name,cluster_name,cluster_type
+0,V1,primary visual cortex,Visual
+1,MST,MT+ complex,Visual
+2,V6,dorsal stream,Visual
+3,V2,early visual cortex,Visual
+4,V3,early visual cortex,Visual
+5,V4,early visual cortex,Visual
+6,V8,ventral stream,Visual
+7,4,early somatosensory and motor cortex,Somatosensory and Motor
+8,3b,early somatosensory and motor cortex,Somatosensory and Motor
+9,FEF,premotor cortex,Somatosensory and Motor
+10,PEF,premotor cortex,Somatosensory and Motor
+11,55b,premotor cortex,Somatosensory and Motor
+12,V3A,dorsal stream,Visual
+13,RSC,posterior cingulate cortex,Posterior
+14,POS2,posterior cingulate cortex,Posterior
+15,V7,dorsal stream,Visual
+16,IPS1,dorsal stream,Visual
+17,FFC,ventral stream,Visual
+18,V3B,dorsal stream,Visual
+19,LO1,MT+ complex,Visual
+20,LO2,MT+ complex,Visual
+21,PIT,ventral stream,Visual
+22,MT,MT+ complex,Visual
+23,A1,early auditory cortex,Auditory
+24,PSL,sensory “bridge” regions of the temporal-parietal-occipital junction,Posterior
+25,SFL,dorsolateral prefrontal cortex,Anterior
+26,PCV,posterior cingulate cortex,Posterior
+27,STV,sensory “bridge” regions of the temporal-parietal-occipital junction,Posterior
+28,7Pm,superior parietal and IPS cortex,Posterior
+29,7m,posterior cingulate cortex,Posterior
+30,POS1,posterior cingulate cortex,Posterior
+31,23d,posterior cingulate cortex,Posterior
+32,v23ab,posterior cingulate cortex,Posterior
+33,d23ab,posterior cingulate cortex,Posterior
+34,31pv,posterior cingulate cortex,Posterior
+35,5m,sensori-motor associated paracentral lobular and mid cingulate cortex,Somatosensory and Motor
+36,5mv,sensori-motor associated paracentral lobular and mid cingulate cortex,Somatosensory and Motor
+37,23c,sensori-motor associated paracentral lobular and mid cingulate cortex,Somatosensory and Motor
+38,5L,sensori-motor associated paracentral lobular and mid cingulate cortex,Somatosensory and Motor
+39,24dd,sensori-motor associated paracentral lobular and mid cingulate cortex,Somatosensory and Motor
+40,24dv,sensori-motor associated paracentral lobular and mid cingulate cortex,Somatosensory and Motor
+41,7AL,superior parietal and IPS cortex,Posterior
+42,SCEF,sensori-motor associated paracentral lobular and mid cingulate cortex,Somatosensory and Motor
+43,6ma,sensori-motor associated paracentral lobular and mid cingulate cortex,Somatosensory and Motor
+44,7Am,superior parietal and IPS cortex,Posterior
+45,7PL,superior parietal and IPS cortex,Posterior
+46,7PC,superior parietal and IPS cortex,Posterior
+47,LIPv,superior parietal and IPS cortex,Posterior
+48,VIP,superior parietal and IPS cortex,Posterior
+49,MIP,superior parietal and IPS cortex,Posterior
+50,1,early somatosensory and motor cortex,Somatosensory and Motor
+51,2,early somatosensory and motor cortex,Somatosensory and Motor
+52,3a,early somatosensory and motor cortex,Somatosensory and Motor
+53,6d,premotor cortex,Somatosensory and Motor
+54,6mp,sensori-motor associated paracentral lobular and mid cingulate cortex,Somatosensory and Motor
+55,6v,premotor cortex,Somatosensory and Motor
+56,p24pr,anterior cingulate and medial prefrontal cortex,Anterior
+57,33pr,anterior cingulate and medial prefrontal cortex,Anterior
+58,a24pr,anterior cingulate and medial prefrontal cortex,Anterior
+59,p32pr,anterior cingulate and medial prefrontal cortex,Anterior
+60,a24,anterior cingulate and medial prefrontal cortex,Anterior
+61,d32,anterior cingulate and medial prefrontal cortex,Anterior
+62,8BM,anterior cingulate and medial prefrontal cortex,Anterior
+63,p32,anterior cingulate and medial prefrontal cortex,Anterior
+64,10r,anterior cingulate and medial prefrontal cortex,Anterior
+65,47m,orbital and polar frontal cortex,Anterior
+66,8Av,dorsolateral prefrontal cortex,Anterior
+67,8Ad,dorsolateral prefrontal cortex,Anterior
+68,9m,anterior cingulate and medial prefrontal cortex,Anterior
+69,8BL,dorsolateral prefrontal cortex,Anterior
+70,9p,dorsolateral prefrontal cortex,Anterior
+71,10d,orbital and polar frontal cortex,Anterior
+72,8C,dorsolateral prefrontal cortex,Anterior
+73,44,inferior frontal cortex,Anterior
+74,45,inferior frontal cortex,Anterior
+75,47l,inferior frontal cortex,Anterior
+76,a47r,inferior frontal cortex,Anterior
+77,6r,premotor cortex,Somatosensory and Motor
+78,IFJa,inferior frontal cortex,Anterior
+79,IFJp,inferior frontal cortex,Anterior
+80,IFSp,inferior frontal cortex,Anterior
+81,IFSa,inferior frontal cortex,Anterior
+82,p9-46v,dorsolateral prefrontal cortex,Anterior
+83,46,dorsolateral prefrontal cortex,Anterior
+84,a9-46v,dorsolateral prefrontal cortex,Anterior
+85,9-46d,dorsolateral prefrontal cortex,Anterior
+86,9a,dorsolateral prefrontal cortex,Anterior
+87,10v,anterior cingulate and medial prefrontal cortex,Anterior
+88,a10p,orbital and polar frontal cortex,Anterior
+89,10pp,orbital and polar frontal cortex,Anterior
+90,11l,orbital and polar frontal cortex,Anterior
+91,13l,orbital and polar frontal cortex,Anterior
+92,OFC,orbital and polar frontal cortex,Anterior
+93,47s,orbital and polar frontal cortex,Anterior
+94,LIPd,superior parietal and IPS cortex,Posterior
+95,6a,premotor cortex,Somatosensory and Motor
+96,i6-8,dorsolateral prefrontal cortex,Anterior
+97,s6-8,dorsolateral prefrontal cortex,Anterior
+98,43,posterior opercular cortex,Somatosensory and Motor
+99,OP4,posterior opercular cortex,Somatosensory and Motor
+100,OP1,posterior opercular cortex,Somatosensory and Motor
+101,OP2-3,posterior opercular cortex,Somatosensory and Motor
+102,52,early auditory cortex,Auditory
+103,RI,early auditory cortex,Auditory
+104,PFcm,early auditory cortex,Auditory
+105,PoI2,insular and frontal opercular cortex,Auditory
+106,TA2,association auditory cortex,Auditory
+107,FOP4,insular and frontal opercular cortex,Auditory
+108,MI,insular and frontal opercular cortex,Auditory
+109,Pir,insular and frontal opercular cortex,Auditory
+110,AVI,insular and frontal opercular cortex,Auditory
+111,AAIC,insular and frontal opercular cortex,Auditory
+112,FOP1,posterior opercular cortex,Somatosensory and Motor
+113,FOP3,insular and frontal opercular cortex,Auditory
+114,FOP2,insular and frontal opercular cortex,Auditory
+115,PFt,inferior parietal cortex,Posterior
+116,AIP,superior parietal and IPS cortex,Posterior
+117,EC,medial temporal cortex,Temporal
+118,PreS,medial temporal cortex,Temporal
+119,H,medial temporal cortex,Temporal
+120,ProS,posterior cingulate cortex,Posterior
+121,PeEc,medial temporal cortex,Temporal
+122,STGa,association auditory cortex,Auditory
+123,PBelt,early auditory cortex,Auditory
+124,A5,association auditory cortex,Auditory
+125,PHA1,medial temporal cortex,Temporal
+126,PHA3,medial temporal cortex,Temporal
+127,STSda,association auditory cortex,Auditory
+128,STSdp,association auditory cortex,Auditory
+129,STSvp,association auditory cortex,Auditory
+130,TGd,lateral temporal cortex,Temporal
+131,TE1a,lateral temporal cortex,Temporal
+132,TE1p,lateral temporal cortex,Temporal
+133,TE2a,lateral temporal cortex,Temporal
+134,TF,medial temporal cortex,Temporal
+135,TE2p,lateral temporal cortex,Temporal
+136,PHT,lateral temporal cortex,Temporal
+137,PH,MT+ complex,Visual
+138,TPOJ1,sensory “bridge” regions of the temporal-parietal-occipital junction,Posterior
+139,TPOJ2,sensory “bridge” regions of the temporal-parietal-occipital junction,Posterior
+140,TPOJ3,sensory “bridge” regions of the temporal-parietal-occipital junction,Posterior
+141,DVT,posterior cingulate cortex,Posterior
+142,PGp,inferior parietal cortex,Posterior
+143,IP2,inferior parietal cortex,Posterior
+144,IP1,inferior parietal cortex,Posterior
+145,IP0,inferior parietal cortex,Posterior
+146,PFop,inferior parietal cortex,Posterior
+147,PF,inferior parietal cortex,Posterior
+148,PFm,inferior parietal cortex,Posterior
+149,PGi,inferior parietal cortex,Posterior
+150,PGs,inferior parietal cortex,Posterior
+151,V6A,dorsal stream,Visual
+152,VMV1,ventral stream,Visual
+153,VMV3,ventral stream,Visual
+154,PHA2,medial temporal cortex,Temporal
+155,V4t,MT+ complex,Visual
+156,FST,MT+ complex,Visual
+157,V3CD,MT+ complex,Visual
+158,LO3,MT+ complex,Visual
+159,VMV2,ventral stream,Visual
+160,31pd,posterior cingulate cortex,Posterior
+161,31a,posterior cingulate cortex,Posterior
+162,VVC,ventral stream,Visual
+163,25,anterior cingulate and medial prefrontal cortex,Anterior
+164,s32,anterior cingulate and medial prefrontal cortex,Anterior
+165,pOFC,anterior cingulate and medial prefrontal cortex,Anterior
+166,PoI1,insular and frontal opercular cortex,Auditory
+167,Ig,insular and frontal opercular cortex,Auditory
+168,FOP5,insular and frontal opercular cortex,Auditory
+169,p10p,orbital and polar frontal cortex,Anterior
+170,p47r,inferior frontal cortex,Anterior
+171,TGv,lateral temporal cortex,Temporal
+172,MBelt,early auditory cortex,Auditory
+173,LBelt,early auditory cortex,Auditory
+174,A4,association auditory cortex,Auditory
+175,STSva,association auditory cortex,Auditory
+176,TE1m,lateral temporal cortex,Temporal
+177,PI,insular and frontal opercular cortex,Auditory
+178,a32pr,anterior cingulate and medial prefrontal cortex,Anterior
+179,p24,anterior cingulate and medial prefrontal cortex,Anterior
