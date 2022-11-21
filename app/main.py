@@ -28,18 +28,22 @@ np.fill_diagonal(matrix, 0)
 # === title
 title = Div( text ="<h1> PLM Brain Vis </h1>")
 # === create first graph
-graph, ntw = grapher.create_graph(matrix, mscale=original_matrix.std()*3)
+G, graph, ntw = grapher.create_graph(matrix, mscale=original_matrix.std()*3)
+degrees_source = ColumnDataSource(data={'degrees':np.array([d[1] for d in G.degree()])})
+count_deg_source = ColumnDataSource(histo.hist_deg(degrees_source))
 ntw.renderers.append(graph)
 # === add slider
 slider = Slider(start=-10, end=0, value=-10, step=1, title="ln threshold")
 # === add Div for information
 threshold_description = Div( text =" threshold: "+str(0), name="thr out")
 
-# === add histogram
-histplot = histo.create_histo(
+# === add histograms of couplings
+histplot = histo.create_threshold_hists(
     matrix.ravel(),
     bins= np.linspace(matrix.min(), matrix.max(),128),
     loglog=True, threshold=threshold_line_source)
+# add degree distribution
+degdist = histo.create_degree_hist(count_deg_source)
 
 def update(attr, old, new):
     """Interactively reconstruct the network as the threshold changes"""
@@ -48,7 +52,7 @@ def update(attr, old, new):
     threshold = np.exp(new)
     matrix[(original_matrix>-threshold)*(original_matrix<threshold)] = 0
 
-    newgraph, newntw = grapher.create_graph(matrix,mscale=original_matrix.std()*3)
+    newG, newgraph, newntw = grapher.create_graph(matrix,mscale=original_matrix.std()*3)
     newntw.renderers.append(newgraph)
 
 
@@ -56,6 +60,8 @@ def update(attr, old, new):
     layout.children[1].children[0] = newntw
     threshold_description.text = f"threshold: {threshold}"
     threshold_line_source.data = {'x':[threshold,threshold],'y':[0.001,10]}
+    degrees_source.data =  {'degrees':np.array([d[1] for d in newG.degree()]) }
+    count_deg_source.data = histo.hist_deg(degrees_source)
 
 
 
@@ -67,6 +73,6 @@ slider.on_change('value', update)
 # graph.node_renderer.data_source.data['colors'] = Category20_20
 
 # graph.node_renderer.glyph.update(size=20, fill_color="colors")
-layout =column(title, row( ntw,column(slider,threshold_description,histplot)))
+layout =column(title, row( ntw,column(slider,threshold_description,histplot,degdist)))
 curdoc().add_root(layout)
 curdoc().title = "PLM Brain Vis"
