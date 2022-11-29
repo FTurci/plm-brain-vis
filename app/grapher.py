@@ -1,10 +1,11 @@
 import networkx as nx
 from bokeh.plotting import figure, from_networkx
 from bokeh.transform import linear_cmap
-from bokeh.models import Circle, MultiLine, EdgesAndLinkedNodes, HoverTool,BoxZoomTool,ResetTool
+from bokeh.models import CategoricalColorMapper
+from bokeh.models import Circle, MultiLine, NodesAndLinkedEdges,EdgesAndLinkedNodes, HoverTool,BoxZoomTool,ResetTool
 import numpy as np
 
-def create_graph(matrix, scale=1.8,circlesize=10, xrange=(-2,2), yrange=(-2,2),mscale =1.0):
+def create_graph(matrix, scale=1.8,circlesize=10, xrange=(-2,2), yrange=(-2,2),mscale =1.0,type=['same']):
     """Create Bokeh network from numpy matrix"""
 
     G = nx.from_numpy_matrix(matrix)
@@ -18,9 +19,10 @@ def create_graph(matrix, scale=1.8,circlesize=10, xrange=(-2,2), yrange=(-2,2),m
                tools="",)
     p.toolbar.logo = None
 
+    nx.set_node_attributes(G,type,"type")
 
     graph = from_networkx(G, nx.spring_layout, scale=scale, center=(0,0))
-
+    
     graph.node_renderer.glyph = Circle(
         size=circlesize,
         fill_color=linear_cmap('index', ('#ff9300', '#8df900'), min(G.nodes()), max(G.nodes()))
@@ -33,7 +35,8 @@ def create_graph(matrix, scale=1.8,circlesize=10, xrange=(-2,2), yrange=(-2,2),m
     graph.inspection_policy=EdgesAndLinkedNodes()
     p.add_tools(HoverTool(
         tooltips=[
-            ( 'weight', '@weight'      ),
+            ('weight', '@weight'),
+            # ('type','@type')
         ],
         # display a tooltip whenever the cursor is vertically in line with a glyph
         # mode='vline'

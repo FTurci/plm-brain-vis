@@ -14,6 +14,7 @@ import histo
 import matplotlib.pyplot as plt
 path = pathlib.Path(__file__).parent.resolve()
 
+# load coupling matrix 
 original_matrix = np.load(str(path)+"/../data/plm_model.npy")
 original_matrix.astype(np.float32)
 diagonal = original_matrix.diagonal()
@@ -25,10 +26,16 @@ matrix = np.copy(original_matrix)
 # storing diagonal values, if ever needed
 diagonal = matrix.diagonal()
 np.fill_diagonal(matrix, 0)
+# load node information
+node_info = np.genfromtxt(str(path)+"/../data/roi_clusters.csv",delimiter=",", skip_header=1,dtype=str)
+
+cluster_type = {i:node_info[:,-1][i] for i  in range(node_info.shape[0])}
+# print(cluster_type)
 # === title
 title = Div( text ="<h1> PLM Brain Vis </h1>")
 # === create first graph
-G, graph, ntw = grapher.create_graph(matrix, mscale=original_matrix.std()*3)
+G, graph, ntw = grapher.create_graph(matrix, mscale=original_matrix.std()*3,type=cluster_type)
+# print(nx.get_node_attributes(G,"type"))
 degrees_source = ColumnDataSource(data={'degrees':np.array([d[1] for d in G.degree()])})
 count_deg_source = ColumnDataSource(histo.hist_deg(degrees_source))
 ntw.renderers.append(graph)
@@ -52,9 +59,8 @@ def update(attr, old, new):
     threshold = np.exp(new)
     matrix[(original_matrix>-threshold)*(original_matrix<threshold)] = 0
 
-    newG, newgraph, newntw = grapher.create_graph(matrix,mscale=original_matrix.std()*3)
+    newG, newgraph, newntw = grapher.create_graph(matrix,mscale=original_matrix.std()*3,type=cluster_type)
     newntw.renderers.append(newgraph)
-
 
     # update the objects on the page
     layout.children[1].children[0] = newntw
@@ -73,6 +79,12 @@ slider.on_change('value', update)
 # graph.node_renderer.data_source.data['colors'] = Category20_20
 
 # graph.node_renderer.glyph.update(size=20, fill_color="colors")
-layout =column(title, row( ntw,column(slider,threshold_description,histplot,degdist)))
+layout =column(title, row( ntw,column(
+    slider,
+    threshold_description,
+    histplot,
+    degdist,
+    Div( text ='''Maximilian Kloucek & <a href="https://francescoturci.net"> Francesco Turci </a>''')
+)))
 curdoc().add_root(layout)
 curdoc().title = "PLM Brain Vis"

@@ -1,4 +1,4 @@
-# I use pd datafram to do selection as this is cleanest.
+# I use pd dataframe to do selection as this is cleanest.
 # This script shows examples of how to select a sub model by a given cluster
 import numpy as np
 import matplotlib.pyplot as plt
