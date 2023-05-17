@@ -84,7 +84,7 @@ layout =column(title, row( ntw,column(
     threshold_description,
     histplot,
     degdist,
-    Div( text =''',a href="https://github.com/maxkloucek"> Maximilian Kloucek</a> & <a href="https://francescoturci.net"> Francesco Turci </a>''')
+    Div( text ='''<a href="https://github.com/maxkloucek"> Maximilian Kloucek</a> & <a href="https://francescoturci.net"> Francesco Turci </a>''')
 )))
 curdoc().add_root(layout)
 curdoc().title = "PLM Brain Vis"
